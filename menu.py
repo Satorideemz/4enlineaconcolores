@@ -29,5 +29,5 @@ class Menu:
 
                     Jugador.unoVSuno(tablero)
                     
-                    if not juego.pinta_otra():
+                    if not Tablero.pinta_otra():
                         break

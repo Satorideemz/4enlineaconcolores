@@ -20,10 +20,9 @@ class Tablero:
         self.tablero = []
 
     def crear_tablero(self):
-        tablero = []
         for fila in range(self.fila):
             self.tablero.append([])
-            for self.columna in range(8):
+            for columna in range(8):
                 self.tablero[fila].append(" ")
         return self.tablero
 
@@ -33,7 +32,7 @@ class Tablero:
         return possicion
 
     # Este metodo tirar las fichas y revisa que no este llena la columna
-    def ingresar_ficha(self,ficha):
+    def ingresar_ficha(self, ficha):
         possicion = self.pido_ficha()
         for i in reversed(range(self.columna)):
             if self.tablero[1][possicion] == ficha:
@@ -68,8 +67,8 @@ class Tablero:
         print("")
 
     # Imprimo un ganaste al gandor
-    def ganador_felicitaciones(jugador_actual):
-        if jugador_actual == JUGADOR_1:
+    def ganador_felicitaciones(turno):
+        if turno == JUGADOR_1:
             print(Fore.MAGENTA + "Jugador 1\n" + Fore.YELLOW + "G" + Fore.GREEN + "A" + Fore.BLUE + "N" + Fore.RED +
                   "A" + Fore.CYAN + "S" + Fore.MAGENTA + "T" + Fore.WHITE + "E" + Fore.YELLOW + "!" + Fore.RED + "!")
         else:
