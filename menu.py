@@ -1,7 +1,9 @@
 # Menu donde se van a colocar los input
 # Carla S. Centeleghe
 
+from juego import Jugador
 from colorama import init, Fore, Style
+from tablero import Tablero
 
 class Menu:
     def __init__(self) -> None:
@@ -22,4 +24,10 @@ class Menu:
             if arbol_b == "2":
                 break
             if arbol_b == "1":
-                pass
+                while True:
+                    tablero = Tablero.crear_tablero()
+
+                    Jugador.unoVSuno(tablero)
+                    
+                    if not juego.pinta_otra():
+                        break
