@@ -5,82 +5,105 @@ import random
 from tablero import Tablero
 
 # Declavo algunas variables utiles
-VIOLETA = "x"
-AZUL = "o"
+#VIOLETA = "x"
+#AZUL = "o"
 JUGADOR_1 = 1
 JUGADOR_2 = 2
 
 
 class Jugador:
-    def __init__(self, ficha):
-         self.ficha = ficha
+    nrojugador=0
+    def __init__(self,ficha=None):
+        Jugador.nrojugador+=1
+        self.ficha = None
 
     # Defino los colores de los jugadores
-    def color_jugador(turno):
-        ficha = VIOLETA
-        if turno == JUGADOR_2:
-            ficha = AZUL
-        return ficha
+    def color_jugador(self):
+        if self.nrojugador == 1:
+            self.ficha = "x"
+        if self.nrojugador == 2:
+            self.ficha = "o"
+
+        return self.ficha
 
     # Contar las fichas, para ver la comdicion de ganar
     def definir_ganador_cotar_fichas(self, ficha,tablero):
 
         # Cuento las fihcas verticalmente
+
         for possicion in range(8):
-            for i in range(5):
-                if tablero[i][possicion] == ficha and tablero[i+1][possicion] == ficha and tablero[i+2][possicion] == ficha and tablero[i+3][possicion] == ficha and tablero[i+4][possicion]:
-                    return True
+             for i in range(5):
+                 if tablero[i][possicion] == ficha and tablero[i+1][possicion] == ficha and tablero[i+2][possicion] == ficha and tablero[i+3][possicion] == ficha:
+                     return True
 
         # Cuento las fichas horizontalmente
         for posicion in range(5):
             for i in range(8):
-                if tablero[i][posicion] == ficha and tablero[i][posicion+1] == ficha and tablero[i][posicion+2] == ficha and tablero[i][posicion+3] == ficha and tablero[i][posicion+4]:
+                if tablero[i][posicion] == ficha and tablero[i][posicion+1] == ficha and tablero[i][posicion+2] == ficha and tablero[i][posicion+3] == ficha:
                     return True
 
         # Cuento las fichas diagonalmente positivo
         for possicion in range(5):
             for i in range(5):
-                if tablero[i][possicion] == ficha and tablero[i+1][possicion+1] == ficha and tablero[i+2][possicion+2] == ficha and tablero[i+3][possicion+3] == ficha and tablero[i+4][possicion+4]:
+                if tablero[i][possicion] == ficha and tablero[i+1][possicion+1] == ficha and tablero[i+2][possicion+2] == ficha and tablero[i+3][possicion+3] == ficha:
                     return True
 
         # Cuento las diagonales negativo
         for possicion in range(5):
             for i in range(5):
-                if tablero[i][possicion] == ficha and tablero[i-1][possicion+1] == ficha and tablero[i-2][possicion+2] == ficha and tablero[i-3][possicion+3] == ficha and tablero[i-4][possicion+4]:
+                if tablero[i][possicion] == ficha and tablero[i-1][possicion+1] == ficha and tablero[i-2][possicion+2] == ficha and tablero[i-3][possicion+3] == ficha:
                     return False
         return False
 
     # Elige el jugador que va a empezar el juego, es al azar. Porq uso una libreria para ello
-    def elegir_jugador():
+
+    def elegir_jugador(self):
         return random.choice([JUGADOR_1, JUGADOR_2])
     
     #Juego 1vs1, donde se llaman a la malloria de las funciones
-    def unoVSuno(tablero):
-       turno = Jugador.elegir_jugador()
-       ficha_jugada = Jugador.color_jugador(turno)#aca se le asigna una "x" o un "O" a ficha
-       while True:
-
-            Tablero.imprimir_tablero(tablero)
-            Tablero.turnos_colores(turno)
-            Tablero.pido_ficha()
-            Tablero.ingresar_ficha(ficha_jugada)
-
-            ganador = Jugador.definir_ganador_cotar_fichas(ficha_jugada, tablero)
-
-            if ganador:
-                Tablero.ganador_felicitaciones(turno)
-                break
-            else:  # cambia los jugadores, va dando los turnos
-                if turno == JUGADOR_1:
-                    turno = JUGADOR_2
-                else:
-                    turno = JUGADOR_1
+    # 1vs1 lo paso de la clase jugador a la clase tablero
 
 
 
 
-        
 
-#j1=Jugador(1)
+#main temporal
+
+t1=Tablero()
+t1.crear_tablero()
+
+j1=Jugador()
+j1.color_jugador()
+
+#print(j1.color_jugador())
+j2=Jugador()
+j2.color_jugador()
+t1.unoVSuno(j1,j2)
+#print(j2.color_jugador())
+
+#t1.ingresar_ficha(1, "x")
+#t1.ingresar_ficha(1, "x")
+#t1.ingresar_ficha(1, "x")
+#t1.ingresar_ficha(1, "x")
+# t1.ingresar_ficha(3, "x")
+# t1.ingresar_ficha(3, "x")
+# t1.ingresar_ficha(3, "x")
+# t1.ingresar_ficha(3, "x")
+
+
+#t1.imprimir_tablero()
+#print(t1.tablero)
 #print(j1.elegir_jugador())
+#print(j1.definir_ganador_cotar_fichas("o",t1.tablero))
+#t1.ganador_felicitaciones(j1)
  
+#print(j1.__dict__)
+#print(j2.__dict__)
+
+
+
+
+
+#t1.pinta_otra()
+
+
