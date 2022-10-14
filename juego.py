@@ -1,23 +1,20 @@
-# Juego del juego
+# Juego del JUGADOR
 # Carla S. Centeleghe
 
-import random
 from tablero import Tablero
 
 # Declavo algunas variables utiles
-#VIOLETA = "x"
-#AZUL = "o"
 JUGADOR_1 = 1
 JUGADOR_2 = 2
 
-
+# Clase jugador, estan las funciones para las fichas y para ver quien gana
 class Jugador:
     nrojugador=0
     def __init__(self,ficha=None):
         Jugador.nrojugador+=1
         self.ficha = None
 
-    # Defino los colores de los jugadores
+    # Defino los colores/fichas de los jugadores, los colores y fichas estan asociados porque printeo en color
     def color_jugador(self):
         if self.nrojugador == 1:
             self.ficha = "x"
@@ -28,9 +25,7 @@ class Jugador:
 
     # Contar las fichas, para ver la comdicion de ganar
     def definir_ganador_cotar_fichas(self, ficha,tablero):
-
         # Cuento las fihcas verticalmente
-
         for possicion in range(8):
              for i in range(5):
                  if tablero[i][possicion] == ficha and tablero[i+1][possicion] == ficha and tablero[i+2][possicion] == ficha and tablero[i+3][possicion] == ficha:
@@ -50,35 +45,19 @@ class Jugador:
 
         # Cuento las diagonales negativo
         for possicion in range(5):
-            for i in range(5):
+            for i in range(3, 5):
                 if tablero[i][possicion] == ficha and tablero[i-1][possicion+1] == ficha and tablero[i-2][possicion+2] == ficha and tablero[i-3][possicion+3] == ficha:
                     return False
         return False
 
-    # Elige el jugador que va a empezar el juego, es al azar. Porq uso una libreria para ello
-
-    def elegir_jugador(self):
-        return random.choice([JUGADOR_1, JUGADOR_2])
-    
-    #Juego 1vs1, donde se llaman a la malloria de las funciones
-    # 1vs1 lo paso de la clase jugador a la clase tablero
-
-
-
-
-
+# Pruebo si va funcionando mientras lo escribo
 #main temporal
 
-t1=Tablero()
-t1.crear_tablero()
 
-j1=Jugador()
-j1.color_jugador()
+
 
 #print(j1.color_jugador())
-j2=Jugador()
-j2.color_jugador()
-t1.unoVSuno(j1,j2)
+
 #print(j2.color_jugador())
 
 #t1.ingresar_ficha(1, "x")
@@ -90,7 +69,6 @@ t1.unoVSuno(j1,j2)
 # t1.ingresar_ficha(3, "x")
 # t1.ingresar_ficha(3, "x")
 
-
 #t1.imprimir_tablero()
 #print(t1.tablero)
 #print(j1.elegir_jugador())
@@ -99,10 +77,6 @@ t1.unoVSuno(j1,j2)
  
 #print(j1.__dict__)
 #print(j2.__dict__)
-
-
-
-
 
 #t1.pinta_otra()
 

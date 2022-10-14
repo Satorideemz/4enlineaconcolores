@@ -1,9 +1,10 @@
-# Tablero del juego 
+# Tablero del Tablero
 # Carla S. Centeleghe
 
 from colorama import init, Fore, Style
 #from juego import *
 
+# Uso esta linea para que me funcione colorama y se vuleva a su color orginal luego
 init(autoreset=True)
 
 # Declavo algunas variables utiles
@@ -12,6 +13,7 @@ AZUL = "o"
 JUGADOR_1 = 1
 JUGADOR_2 = 2
 
+# Clase donde estan casi todas mis funciones
 class Tablero:
 
     def __init__(self):
@@ -19,6 +21,7 @@ class Tablero:
         self.columna = 8
         self.tablero = []
 
+    # Creo el tablero (vacio) 
     def crear_tablero(self):
         tablero = []
         for fila in range(self.fila):
@@ -34,7 +37,6 @@ class Tablero:
 
     # Este metodo tirar las fichas y revisa que no este llena la columna
     def ingresar_ficha(self,possicion,ficha):
-        #possicion = self.pido_ficha()
         for i in reversed(range(self.columna)):
             if self.tablero[1][possicion] == ficha:
                 print("columna llena!!! sos un pelotudo")
@@ -42,11 +44,12 @@ class Tablero:
             if self.tablero[i+1][possicion] == " ":
                 self.tablero[i+1][possicion] = ficha
                 break
+           
       
     # Como se imprime por pantalla
     def imprimir_tablero(self):
         print("|", end="")
-        for f in range(1, len(self.tablero)):
+        for f in range(0, len(self.tablero)):
             print(f, end="|")
         print("")
         # Colores
@@ -62,7 +65,7 @@ class Tablero:
             print("")
         # Final
         print("+", end="")
-        for f in range(1, len(self.tablero)):
+        for f in range(0, len(self.tablero)):
             print("-", end="+")
         print("")
 
@@ -79,13 +82,14 @@ class Tablero:
     def turnos_colores(self,jugador,jugador2):
         pass
         #turnos y colores metodo obsoleto, remplazado por 1vs 1 en su lugar
+
+
     def unoVSuno(self,jugador,jugador2):
         #night is coming...  
         print(Fore.MAGENTA +
               "Jugador 1: {VIOLETA} " + Fore.CYAN + "| Jugador 2: {AZUL}")
-        print(Fore.MAGENTA +
-              "Jugador 1: {VIOLETA} " + Fore.CYAN + "| Jugador 2: {AZUL}")
-        #GOOD NIGHT, GOOD LUCK       
+        
+        #GOOD NIGHT, GOOD LUCK      
         while True :
             print("Juega el " + Fore.MAGENTA + "jugador 1 ({VIOLETA})")
             self.imprimir_tablero()
@@ -95,7 +99,7 @@ class Tablero:
                 self.imprimir_tablero()
                 self.ganador_felicitaciones(jugador)
                 break
-            
+
             print("Juega el " + Fore.CYAN + "jugador 2 ({AZUL})")
             self.imprimir_tablero()
             a=self.pido_ficha()
@@ -104,14 +108,13 @@ class Tablero:
                 self.imprimir_tablero()
                 self.ganador_felicitaciones(jugador2)
                 break
+
         #night survived!        
             
-        
     #otra partida boucle
     def pinta_otra(self):
-        
         while True:
-            eleccion = input("¿Revancha? [S/N] ")()
+            eleccion = input("¿Revancha? [S/N] ")
             if eleccion == "S":
                 return True
             elif eleccion == "N":
