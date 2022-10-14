@@ -6,15 +6,18 @@ from colorama import init, Fore, Style
 from tablero import Tablero
 
 # Clase principal, que hace funcionar el programa
+
+
 class Menu:
     def __init__(self) -> None:
         pass
     # Funcion que comienza a correr el juego
+
     def main():
         while True:
             # Imprimo por pantalla (con colorcito) el nombre del juego
             print(Fore.YELLOW + "4" + " " + Fore.GREEN + "E" + Fore.BLUE + "N" + " " + Fore.RED +
-                "L" + Fore.CYAN + "i" + Fore.MAGENTA + "N" + Fore.WHITE + "E" + Fore.YELLOW + "A\n") 
+                  "L" + Fore.CYAN + "i" + Fore.MAGENTA + "N" + Fore.WHITE + "E" + Fore.YELLOW + "A\n")
 
             # Imprimo por pantalla un indice de opciones
             arbol_b = input("1- UNO vs UNO"
@@ -26,14 +29,15 @@ class Menu:
                 break
             if arbol_b == "1":
                 # Empieza a ejecutar y llamar junciones
-                while True: 
-                    tablero = Tablero.crear_tablero() # Creo el tablero
+                while True:
+                    tablero = Tablero.crear_tablero()  # Creo el tablero
 
-                    Tablero.unoVSuno(tablero) # Juego el juego
+                    Tablero.unoVSuno(tablero)  # Juego el juego
 
-                    Tablero.pinta_otra() #Revancha, vuelve a ejecutarel prograa/ NO FUNCIONA
+                    # Revancha, vuelve a ejecutarel prograa/ NO FUNCIONA, porq no volvemos a jugar
+                    Tablero.pinta_otra()
 
-                 
+
 if __name__ == "__main__":
 
     t1 = Tablero()

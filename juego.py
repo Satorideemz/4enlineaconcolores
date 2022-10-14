@@ -8,10 +8,13 @@ JUGADOR_1 = 1
 JUGADOR_2 = 2
 
 # Clase jugador, estan las funciones para las fichas y para ver quien gana
+
+
 class Jugador:
-    nrojugador=0
-    def __init__(self,ficha=None):
-        Jugador.nrojugador+=1
+    nrojugador = 0
+
+    def __init__(self, ficha=None):
+        Jugador.nrojugador += 1
         self.ficha = None
 
     # Defino los colores/fichas de los jugadores, los colores y fichas estan asociados porque printeo en color
@@ -24,12 +27,12 @@ class Jugador:
         return self.ficha
 
     # Contar las fichas, para ver la comdicion de ganar
-    def definir_ganador_cotar_fichas(self, ficha,tablero):
+    def definir_ganador_cotar_fichas(self, ficha, tablero):
         # Cuento las fihcas verticalmente
         for possicion in range(8):
-             for i in range(5):
-                 if tablero[i][possicion] == ficha and tablero[i+1][possicion] == ficha and tablero[i+2][possicion] == ficha and tablero[i+3][possicion] == ficha:
-                     return True
+            for i in range(5):
+                if tablero[i][possicion] == ficha and tablero[i+1][possicion] == ficha and tablero[i+2][possicion] == ficha and tablero[i+3][possicion] == ficha:
+                    return True
 
         # Cuento las fichas horizontalmente
         for posicion in range(5):
@@ -50,11 +53,9 @@ class Jugador:
                     return False
         return False
 
+
 # Pruebo si va funcionando mientras lo escribo
 #main temporal
-
-
-
 
 #print(j1.color_jugador())
 
@@ -74,10 +75,11 @@ class Jugador:
 #print(j1.elegir_jugador())
 #print(j1.definir_ganador_cotar_fichas("o",t1.tablero))
 #t1.ganador_felicitaciones(j1)
- 
+
 #print(j1.__dict__)
 #print(j2.__dict__)
 
 #t1.pinta_otra()
+
 
 
