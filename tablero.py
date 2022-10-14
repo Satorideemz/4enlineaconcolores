@@ -70,6 +70,7 @@ class Tablero:
         for f in range(0, len(self.tablero)):
             print("-", end="+")
         print("")
+        return True
 
     # Imprimo un ganaste al gandor
     def ganador_felicitaciones(self, jugador_actual):

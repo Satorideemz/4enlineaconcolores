@@ -35,18 +35,16 @@ class Test4enLinea(unittest.TestCase):
     #    x = Tablero()
     #    self.assertEqual(x.ingresar_ficha[1], 'x')
 
+    # Test de como imprime en pantalla / NO FUNCIONA
+    # def test_iprimir_tablero(self):
+    #     tablero = Tablero
+    #     self.assertTrue(tablero.imprimir_tablero(self))
 
-# |0|1|2|3|4|5|6|7|
-# | | | | | | | | |
-# | | | | | | | | |
-# | | | | | | | | |
-# | | | | | | | | |
-# | | | | | | | | |
-# | | | | | | | | |
-# | | | | | | | | |
-# | | | | | | | | |
-# +-+-+-+-+-+-+-+-+
+    # Test para felicitacion ganador
+   
 
+
+    
 
 if __name__ == "__main__":
     unittest.main()
