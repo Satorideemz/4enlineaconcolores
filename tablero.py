@@ -75,20 +75,20 @@ class Tablero:
     # Imprimo un ganaste al gandor
     def ganador_felicitaciones(self, jugador_actual):
         if jugador_actual.ficha == "x":
-            print(Fore.MAGENTA + "Jugador 1\n" + Fore.YELLOW + "G" + Fore.GREEN + "A" + Fore.BLUE + "N" + Fore.RED +
+            print(Fore.MAGENTA + "JUGADOR 1\n" + Fore.YELLOW + "G" + Fore.GREEN + "A" + Fore.BLUE + "N" + Fore.RED +
                   "A" + Fore.CYAN + "S" + Fore.MAGENTA + "T" + Fore.WHITE + "E" + Fore.YELLOW + "!" + Fore.RED + "!")
         elif jugador_actual.ficha == "o":
-            print(Fore.CYAN + "Jugador 2\n" + Fore.YELLOW + "G" + Fore.GREEN + "A" + Fore.BLUE + "N" + Fore.RED +
+            print(Fore.CYAN + "JUGADOR 2\n" + Fore.YELLOW + "G" + Fore.GREEN + "A" + Fore.BLUE + "N" + Fore.RED +
                   "A" + Fore.CYAN + "S" + Fore.MAGENTA + "T" + Fore.WHITE + "E" + Fore.YELLOW + "!" + Fore.RED + "!")
 
     def unoVSuno(self, jugador, jugador2):
         #night is coming...
         print(Fore.MAGENTA +
-              "Jugador 1: {VIOLETA} " + Fore.CYAN + "| Jugador 2: {AZUL}")
+              "Jugador 1: X " + Fore.CYAN + "| Jugador 2: O")
 
         #GOOD NIGHT, GOOD LUCK
         while True:
-            print("Juega el " + Fore.MAGENTA + "jugador 1 ({VIOLETA})")
+            print("Juega el " + Fore.MAGENTA + "JUGADOR 1: X")
             self.imprimir_tablero()
             a = self.pido_ficha()
             self.ingresar_ficha(a, jugador.ficha)
@@ -97,7 +97,7 @@ class Tablero:
                 self.ganador_felicitaciones(jugador)
                 break
 
-            print("Juega el " + Fore.CYAN + "jugador 2 ({AZUL})")
+            print("Juega el " + Fore.CYAN + "JUGADOR 2: O")
             self.imprimir_tablero()
             a = self.pido_ficha()
             self.ingresar_ficha(a, jugador2.ficha)
@@ -115,7 +115,7 @@ class Tablero:
             if eleccion == "S":
                 return True
             elif eleccion == "N":
-                return False
+                return True
 
 
 

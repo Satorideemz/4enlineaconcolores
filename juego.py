@@ -48,7 +48,7 @@ class Jugador:
 
         # Cuento las diagonales negativo
         for possicion in range(5):
-            for i in range(3, 5):
+            for i in range(3, 8):
                 if tablero[i][possicion] == ficha and tablero[i-1][possicion+1] == ficha and tablero[i-2][possicion+2] == ficha and tablero[i-3][possicion+3] == ficha:
                     return False
         return False
