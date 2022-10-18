@@ -54,32 +54,7 @@ class Jugador:
         return False
 
 
-# Pruebo si va funcionando mientras lo escribo
-#main temporal
 
-#print(j1.color_jugador())
-
-#print(j2.color_jugador())
-
-#t1.ingresar_ficha(1, "x")
-#t1.ingresar_ficha(1, "x")
-#t1.ingresar_ficha(1, "x")
-#t1.ingresar_ficha(1, "x")
-# t1.ingresar_ficha(3, "x")
-# t1.ingresar_ficha(3, "x")
-# t1.ingresar_ficha(3, "x")
-# t1.ingresar_ficha(3, "x")
-
-#t1.imprimir_tablero()
-#print(t1.tablero)
-#print(j1.elegir_jugador())
-#print(j1.definir_ganador_cotar_fichas("o",t1.tablero))
-#t1.ganador_felicitaciones(j1)
-
-#print(j1.__dict__)
-#print(j2.__dict__)
-
-#t1.pinta_otra()
 
 
 

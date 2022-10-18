@@ -1,8 +1,9 @@
 # Tablero del Tablero
 # Carla S. Centeleghe
 
+
 from colorama import init, Fore, Style
-#from juego import *
+from juego import *
 
 # Uso esta linea para que me funcione colorama y se vuleva a su color orginal luego
 init(autoreset=True)
@@ -39,16 +40,19 @@ class Tablero:
 
     # Este metodo tirar las fichas y revisa que no este llena la columna
     def ingresar_ficha(self, possicion, ficha):
+        c = 0
         for i in reversed(range(self.columna)):
-            if self.tablero[1][possicion] == ficha:
-                print("columna llena!!! sos un pelotudo")
+            if self.tablero[1][possicion] != " ":
+                c = c+1
+                print("\n" + Fore.YELLOW +"Columna llena!!!  " + Fore.BLUE +"Intenta en otra columna\n")
+                if c == 1:
+                    return True
                 break
             if self.tablero[i+1][possicion] == " ":
                 self.tablero[i+1][possicion] = ficha
                 break
 
     # Como se imprime por pantalla
-
     def imprimir_tablero(self):
         print("|", end="")
         for f in range(0, len(self.tablero)):
@@ -82,22 +86,22 @@ class Tablero:
                   "A" + Fore.CYAN + "S" + Fore.MAGENTA + "T" + Fore.WHITE + "E" + Fore.YELLOW + "!" + Fore.RED + "!")
 
     def unoVSuno(self, jugador, jugador2):
-        #night is coming...
+        # Imprime las fichas y colores de los jugadores
         print(Fore.MAGENTA +
               "Jugador 1: X " + Fore.CYAN + "| Jugador 2: O")
 
-        #GOOD NIGHT, GOOD LUCK
+        # Empieza el juego
         while True:
             print("Juega el " + Fore.MAGENTA + "JUGADOR 1: X")
-            self.imprimir_tablero()
-            a = self.pido_ficha()
-            self.ingresar_ficha(a, jugador.ficha)
-            if jugador.definir_ganador_cotar_fichas(jugador.ficha, self.tablero) == True:
+            self.imprimir_tablero()     # imprime el tablero
+            a = self.pido_ficha()       # pide la ficha del jugador
+            self.ingresar_ficha(a, jugador.ficha)   # coloca la ficha
+            if jugador.definir_ganador_cotar_fichas(jugador.ficha, self.tablero) == True: #chequea si gana o no
                 self.imprimir_tablero()
-                self.ganador_felicitaciones(jugador)
+                self.ganador_felicitaciones(jugador) # felicita al gandor
                 break
 
-            print("Juega el " + Fore.CYAN + "JUGADOR 2: O")
+            print("Juega el " + Fore.CYAN + "JUGADOR 2: O")     # todo devuelta pero para el jugador 2 
             self.imprimir_tablero()
             a = self.pido_ficha()
             self.ingresar_ficha(a, jugador2.ficha)
@@ -106,16 +110,16 @@ class Tablero:
                 self.ganador_felicitaciones(jugador2)
                 break
 
-        #night survived!
+        #sigue y sigue, hasta que uno gane
 
     #otra partida boucle
     def pinta_otra(self):
-        while True:
-            eleccion = input("¿Revancha? [S/N] ")
-            if eleccion == "S":
-                return True
-            elif eleccion == "N":
-                return True
+        eleccion = input("¿Revancha? [S/N] ")
+        if eleccion == "S":
+            print('Lo siento, no quiero jugar devuelta')
+            return True
+        elif eleccion == "N":
+            return True
 
 
 
