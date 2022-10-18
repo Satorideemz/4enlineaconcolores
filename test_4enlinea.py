@@ -1,13 +1,11 @@
 # Test para todo el codigo
+# Carla S. Centeleghe
 
-#from distutils.command.build import build
-#from msilib.schema import Patch
 import unittest
 import unittest.mock
-from juego import Jugador
 
+from juego import Jugador
 from tablero import Tablero
-#from juego import Jugador
 #from menu import Menu
 
 

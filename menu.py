@@ -30,27 +30,22 @@ class Menu:
             if arbol_b == "1":
                 # Empieza a ejecutar y llamar junciones
                 while True:
-                    tablero = Tablero.crear_tablero()  # Creo el tablero
+                    tablero = Tablero()
+                    tablero.crear_tablero()  # Creo el tablero
 
-                    Tablero.unoVSuno(tablero)  # Juego el juego
+                    j1 = Jugador()
+                    j1.color_jugador()
 
-                    # Revancha, vuelve a ejecutarel prograa/ NO FUNCIONA, porq no volvemos a jugar
-                    Tablero.pinta_otra()
+                    j2 = Jugador()
+                    j2.color_jugador()
+                    tablero.unoVSuno(j1, j2)
 
+                    tablero.pinta_otra()  # Revancha, vuelve a ejecutarel prograa
+                    return True
+            break
+                                      
+Menu.main()
 
-if __name__ == "__main__":
-
-    t1 = Tablero()
-    t1.crear_tablero()
-
-    j1 = Jugador()
-    j1.color_jugador()
-
-    j2 = Jugador()
-    j2.color_jugador()
-    t1.unoVSuno(j1, j2)
-
-    t1.pinta_otra()
 
 
                     

@@ -26,7 +26,6 @@ class Tablero:
 
     # Creo el tablero (vacio)
     def crear_tablero(self):
-        tablero = []
         for fila in range(self.fila):
             self.tablero.append([])
             for self.columna in range(8):
@@ -120,7 +119,7 @@ class Tablero:
             return True
         elif eleccion == "N":
             return True
-
+        
 
 
 
