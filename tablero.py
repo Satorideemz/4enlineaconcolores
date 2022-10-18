@@ -100,7 +100,7 @@ class Tablero:
                 self.ganador_felicitaciones(jugador) # felicita al gandor
                 break
 
-            print("Juega el " + Fore.CYAN + "JUGADOR 2: O")     # todo devuelta pero para el jugador 2 
+            print("Juega el " + Fore.CYAN + "JUGADOR 2: O")   # todo devuelta pero para el jugador 2 
             self.imprimir_tablero()
             a = self.pido_ficha()
             self.ingresar_ficha(a, jugador2.ficha)
