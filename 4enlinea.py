@@ -31,6 +31,7 @@ class Tablero:
             if self.tablero[i][posicion]==" ":
                 self.tablero[i][posicion]=ficha
                 break        
+                
 
     def coulmna_valida(self,columna):
 

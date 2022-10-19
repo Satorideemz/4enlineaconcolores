@@ -197,9 +197,9 @@ class Test4enLinea(unittest.TestCase):
         juego.ingresar_ficha(5, 'o')
         juego.ingresar_ficha(5, 'o')
         juego.ingresar_ficha(5, 'o')
-        # juego.ingresar_ficha(5, 'o')
+        juego.ingresar_ficha(5, 'o')
         self.assertTrue(juego.ingresar_ficha(5, 'o'))
-
+        #inserto 8 piezas para llenar el tablero
     def test_columna_llena_x_22(self):
         juego = Tablero()
         juego.crear_tablero()
@@ -210,7 +210,8 @@ class Test4enLinea(unittest.TestCase):
         juego.ingresar_ficha(6, 'x')
         juego.ingresar_ficha(6, 'x')
         juego.ingresar_ficha(6, 'x')
-        # juego.ingresar_ficha(6, 'o')
+        juego.ingresar_ficha(6, 'x')
+        #inserto 8 piezas para llenar el tablero
         self.assertTrue(juego.ingresar_ficha(6, 'x'))
 
 
